@@ -1,0 +1,21 @@
+<template>
+	<h2>Renners</h2>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Naam</th>
+                    <th>Punten</th>
+                    <th>Licentie</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr repeat.for="rider of riders">
+                    <td><a route-href="route: rider; params.bind: {slug:rider.slug}">${rider.name}</a></td>
+					<td>${rider.points}</td>
+					<td>${rider.licence}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</template>

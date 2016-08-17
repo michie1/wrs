@@ -1,0 +1,30 @@
+{
+    "riders": [{
+        "name": "Michiel"
+    }, {
+        "name": "Henk"
+    }],
+
+    "races": [{
+        "name": "Ronde van De Lier",
+        "date": "2016-08-11",
+        "type": "criterium",
+        "report": "verslag"
+    }, {
+        "name": "Gouden Pijl Emmen",
+        "date": "2016-08-11",
+        "type": "criterium",
+        "report": "verslag"
+    }],
+
+    "results": [{
+       "race": "2016-08-11-ronde-van-de-lier",
+       "rider": "michiel", 
+       "result": "12"
+    }, {
+        "race": "2016-08-11-gouden-pijl-emmen",
+        "rider": "henk",
+        "result": "31"
+    }]
+
+}

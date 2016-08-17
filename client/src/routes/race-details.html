@@ -1,0 +1,26 @@
+<template>
+	<h2>${race.name}</h2>
+    <ul>
+        <li>${race.date}</li>
+        <li>${race.type}</li>
+        <li>${race.report}</li>
+    </ul>
+    <h2>Uitslagen</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Renner</th>
+                    <th>Uitslag</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr repeat.for="result of results">
+                    <td><a route-href="route: rider; params.bind: {slug:result.riderSlug}">${result.rider.name}</a></td>
+                    <td>${result.result}</td>
+                    <td>${result.category}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</template>
