@@ -3,27 +3,19 @@ import {HttpClient} from 'aurelia-fetch-client';
 
 import {Result} from '../../models/result';
 
-@inject(Factory.of(Result), HttpClient)
+@inject(HttpClient)
 export class ResultService {
     results = [];
 
-    constructor(resultFactory, http) {
-        this.resultFactory = resultFactory;
+    constructor(http) {
         this.http = http;
     }
 
     load(model, slug, date) {
         let url = 'results';
-
-        /*
-        if (slug !== undefined) { // load all
-            if (model === 'race') {
-                url += '?race=' + slug;
-            } else if (model === 'rider') {
-                url += '?rider_like=' + slug;
-            }
+        if (model === undefined) {
+            console.log('no model in load method of ResultService');
         }
-       */
 
         if (model === 'race') {
             url += '/' + date;
@@ -35,8 +27,7 @@ export class ResultService {
         .then(response => response.json())
         .then(results => {
             return results.map(data => {
-                console.log(data);
-                return this.resultFactory(data);
+                return new Result(data);
             });
         });
     }

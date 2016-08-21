@@ -8,13 +8,13 @@ export class RidersIndex {
 
     riders = [];
 
-    constructor(RiderService) {
-        this.RiderService = RiderService;
+    constructor(riderService) {
+        this.riderService = riderService;
     }
 
     activate() {
-		this.RiderService.load().then(riders => {
-			this.riders = riders;
-		});
+        this.riderService.load().then(riders => {
+            this.riders = riders;
+        });
     }
 }

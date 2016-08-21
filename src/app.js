@@ -8,9 +8,6 @@ export class App {
 
     constructor(http) {
         this.http = http;
-    }
-
-    activate() {
         this.http.configure(config => {
             config.withBaseUrl('http://localhost:8080/');
         });

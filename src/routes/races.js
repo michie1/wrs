@@ -9,11 +9,11 @@ export class RacesIndex {
     races = [];
 
     constructor(raceService) {
-        this.RaceService = raceService;
+        this.raceService = raceService;
     }
 
     activate() {
-        this.RaceService.load().then(races => {
+        this.raceService.load().then(races => {
             this.races = races;
         });
     }

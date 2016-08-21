@@ -6,17 +6,16 @@ import {ResultService} from '../services/data/result';
 @inject(RaceService, ResultService)
 export class RaceDetails {
     constructor(raceService, resultService) {
-        this.RaceService = raceService;
-        this.ResultService = resultService;
+        this.raceService = raceService;
+        this.resultService = resultService;
     }
 
     activate(params) {
-        this.RaceService.load(params.slug, params.date).then(race => {
+        this.raceService.load(params.slug, params.date).then(race => {
             this.race = race;
         });
 
-        this.ResultService.load('race', params.slug, params.date).then(results => {
-            console.log(results);
+        this.resultService.load('race', params.slug, params.date).then(results => {
             this.results = results;
         });
     }
