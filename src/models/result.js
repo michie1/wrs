@@ -1,4 +1,4 @@
-import {inject} from 'aurelia-framework';  
+import {inject} from 'aurelia-framework';
 
 import {RaceService} from '../services/data/race';
 import {RiderService} from '../services/data/rider';
@@ -13,22 +13,15 @@ export class Result {
     category: '(A)-Elite-Mannen/Beloften/Amateurs';
     comment: '';
 
-    constructor(RaceService, RiderService, data) {
-        this.RaceService = RaceService;
-        this.RiderService = RiderService;
-        
-        this.race = data.race;
+    constructor(raceService, riderService, data) {
+        this.RaceService = raceService;
+        this.RiderService = riderService;
+
         this.result = data.result;
-        //this.riderSlug = data.rider;
-    }
-
-    activate() {
-        this.RaceService.load(this.raceSlug).then(race => {
-            this.race = race;
-        });
-
-        this.RiderService.load(this.riderSlug).then(rider => {
-            this.rider = rider;
-        });
+        if (data.hasOwnProperty('race')) {
+            this.race = data.race;
+        } else if (data.hasOwnProperty('rider')) {
+            this.rider = data.rider;
+        }
     }
 }

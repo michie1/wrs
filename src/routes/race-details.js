@@ -1,23 +1,22 @@
-import {inject} from 'aurelia-framework';  
+import {inject} from 'aurelia-framework';
 
-import {Race} from '../models/race';
 import {RaceService} from '../services/data/race';
 import {ResultService} from '../services/data/result';
 
 @inject(RaceService, ResultService)
 export class RaceDetails {
-
-    constructor(RaceService, ResultService) {
-        this.RaceService = RaceService;
-        this.ResultService = ResultService;
+    constructor(raceService, resultService) {
+        this.RaceService = raceService;
+        this.ResultService = resultService;
     }
 
     activate(params) {
-        this.RaceService.load(params.slug).then(race => {
+        this.RaceService.load(params.slug, params.date).then(race => {
             this.race = race;
         });
 
-        this.ResultService.load('race', params.slug).then(results => {
+        this.ResultService.load('race', params.slug, params.date).then(results => {
+            console.log(results);
             this.results = results;
         });
     }

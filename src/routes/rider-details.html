@@ -15,7 +15,7 @@
             </thead>
             <tbody>
                 <tr repeat.for="result of results">
-                    <td><a route-href="route: race; params.bind: {slug:result.race.slug}">${result.race.name}</a></td>
+                    <td><a route-href="route: race; params.bind: {slug:result.race.slug, date:result.race.date}">${result.race.name}</a></td>
                     <td>${result.result}</td>
                 </tr>
             </tbody>

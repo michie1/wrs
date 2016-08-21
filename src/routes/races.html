@@ -12,7 +12,7 @@
             </thead>
             <tbody>
                 <tr repeat.for="race of races">
-                    <td><a route-href="route: race; params.bind: {slug:race.slug}">${race.name}</a></td>
+                    <td><a route-href="route: race; params.bind: {slug:race.slug, date:race.date}">${race.name}</a></td>
                     <td>${race.date}</td>
                     <td>${race.type}</td>
                     <td>${race.countWTOSers()}</td>

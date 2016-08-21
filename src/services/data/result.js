@@ -12,7 +12,7 @@ export class ResultService {
         this.http = http;
     }
 
-    load(model, slug) {
+    load(model, slug, date) {
         let url = 'results';
 
         /*
@@ -25,12 +25,17 @@ export class ResultService {
         }
        */
 
+        if (model === 'race') {
+            url += '/' + date;
+        }
+
         url += '/' + slug;
 
         return this.http.fetch(url)
         .then(response => response.json())
         .then(results => {
             return results.map(data => {
+                console.log(data);
                 return this.resultFactory(data);
             });
         });

@@ -12,7 +12,6 @@ export class App {
 
     activate() {
         this.http.configure(config => {
-            //config.withBaseUrl('http://localhost:3000/');
             config.withBaseUrl('http://localhost:8080/');
         });
     }
@@ -38,7 +37,7 @@ export class App {
             name: 'races',
             moduleId: 'routes/races'
         }, {
-            route: 'wedstrijd/:slug',
+            route: 'wedstrijd/:date/:slug',
             name: 'race',
             moduleId: 'routes/race-details'
         }]);

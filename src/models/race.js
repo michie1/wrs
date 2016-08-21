@@ -1,5 +1,5 @@
 export class Race {
-    date = '2016-08-11';
+    date;
     type = 'criterium';
 
     slug = '';
@@ -8,8 +8,8 @@ export class Race {
     constructor(data) {
         this.name = data.name;
         this.date = data.date;
-        this.slug = this.date + '-' + 
-            this.name.replace(/ /g, '-').toLowerCase();
+        this.slug = this.name.replace(/ /g, '-').toLowerCase();
+        //this.slug = data.slug;
     }
 
     countWTOSers() {

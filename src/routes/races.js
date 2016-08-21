@@ -1,6 +1,6 @@
-import {inject} from 'aurelia-framework';  
+import {inject} from 'aurelia-framework';
 
-import {Race} from '../models/rider';
+//import {Race} from '../models/rider';
 import {RaceService} from '../services/data/race';
 
 @inject(RaceService)
@@ -8,13 +8,13 @@ export class RacesIndex {
 
     races = [];
 
-    constructor(RaceService) {
-        this.RaceService = RaceService;
+    constructor(raceService) {
+        this.RaceService = raceService;
     }
 
     activate() {
-		this.RaceService.load().then(races => {
-			this.races = races;
-		});
+        this.RaceService.load().then(races => {
+            this.races = races;
+        });
     }
 }

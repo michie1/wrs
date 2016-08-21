@@ -19,9 +19,8 @@ export class RiderService {
                     });
                 });
         } else { // load specific one
-            return this.http.fetch('riders?name_like=' + slug)
+            return this.http.fetch('riders/' + slug)
                 .then(response => response.json())
-                .then(response => response[0])
                 .then(data => new Rider(data));
         }
     }
