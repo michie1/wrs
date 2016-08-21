@@ -12,7 +12,8 @@ export class App {
 
     activate() {
         this.http.configure(config => {
-            config.withBaseUrl('http://localhost:3000/');
+            //config.withBaseUrl('http://localhost:3000/');
+            config.withBaseUrl('http://localhost:8080/');
         });
     }
 

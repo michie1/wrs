@@ -7,10 +7,10 @@ import {Rider} from '../../models/rider';
 export class RiderService {
     constructor(http) {
         this.http = http;
-    } 
+    }
 
     load(slug) {
-        if(slug === undefined) { // load all
+        if (slug === undefined) { // load all
             return this.http.fetch('riders')
                 .then(response => response.json())
                 .then(riders => {

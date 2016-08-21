@@ -15,6 +15,7 @@ export class ResultService {
     load(model, slug) {
         let url = 'results';
 
+        /*
         if (slug !== undefined) { // load all
             if (model === 'race') {
                 url += '?race=' + slug;
@@ -22,6 +23,9 @@ export class ResultService {
                 url += '?rider_like=' + slug;
             }
         }
+       */
+
+        url += '/' + slug;
 
         return this.http.fetch(url)
         .then(response => response.json())

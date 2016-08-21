@@ -17,9 +17,9 @@ export class Result {
         this.RaceService = RaceService;
         this.RiderService = RiderService;
         
-        this.raceSlug = data.race;
-        this.riderSlug = data.rider;
+        this.race = data.race;
         this.result = data.result;
+        //this.riderSlug = data.rider;
     }
 
     activate() {
