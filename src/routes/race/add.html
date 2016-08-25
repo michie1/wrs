@@ -1,0 +1,33 @@
+<template>
+    <h2>Wedstrijd toevoegen</h2>
+
+    <form role="form" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Naam</label>
+            <div class="col-sm-5">
+                <input type="text" value.bind="name"  class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Datum</label>
+            <div class="col-sm-5">
+                <input type="date" value.bind="date" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Category</label>
+            <div class="col-sm-5">
+                <select class="form-control" value.bind="category">
+                    <option repeat.for="c of categories" value.bind="c">${c}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-10">
+                <button type="submit" class="btn btn-default" disabled.bind="submitted" click.trigger="create()">Opslaan</button>
+            </div>
+        </div>
+    </form>
+
+</template>
+

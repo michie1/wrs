@@ -28,4 +28,11 @@ export class RaceService {
             .then(data => new Race(data));
         }
     }
+
+    create(data) {
+        console.log('RaceService create');
+        return new Promise((resolve, reject) => {
+            resolve({message: 'succes'});
+        });
+    }
 }
