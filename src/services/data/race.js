@@ -1,5 +1,5 @@
 import {inject} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import {HttpClient, json} from 'aurelia-fetch-client';
 
 import {Race} from '../../models/race';
 
@@ -30,9 +30,11 @@ export class RaceService {
     }
 
     create(data) {
-        console.log('RaceService create');
-        return new Promise((resolve, reject) => {
-            resolve({message: 'succes'});
+        return this.http.fetch('race', {
+            method: 'post',
+            body: json(data)
+        }).then((response) => {
+            return response.json();
         });
     }
 }

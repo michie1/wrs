@@ -1,24 +1,25 @@
 import {inject} from 'aurelia-framework';
 import {RaceService} from '../../services/data/race';
+import {Router, Redirect} from 'aurelia-router';
+import moment from 'moment';
 
-@inject(RaceService)
+@inject(RaceService, Router)
 export class Add {
+    name = '';
+    date;
 
     category = 'Criterium';
     categories = ['Criterium', 'Klassieker', 'Tijdrit'];
 
-    name = '';
-
-    date = '2016-08-25'; 
-
     submitted = false;
 
-    constructor(raceService) {
-        console.log('Add race constructor');
+    constructor(raceService, router) {
         this.raceService = raceService;
+        this.router = router;
+        this.date = moment().format('YYYY-MM-DD').toString(); // today
     }
 
-    create() {
+    add() {
         this.submitted = true;
         this.raceService.create({
             name: this.name,
@@ -26,6 +27,11 @@ export class Add {
             category: this.category,
         }).then((response) => {
             console.log(response);
+            
+            this.router.navigateToRoute('race', {
+                'slug': response.slug,
+                'date': response.date
+            });
         });
     }
 }

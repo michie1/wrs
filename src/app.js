@@ -37,6 +37,10 @@ export class App {
             route: 'wedstrijd/:date/:slug',
             name: 'race',
             moduleId: 'routes/race-details'
+        }, {
+            route: 'wedstrijd/toevoegen',
+            name: 'RaceAdd',
+            moduleId: 'routes/race/add'
         }]);
 
         this.router = router;

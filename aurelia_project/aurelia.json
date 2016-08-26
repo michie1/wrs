@@ -95,7 +95,8 @@
 				"resources": [
 					"css/bootstrap.css"
 				]
-			}
+			},
+            "moment"
 		]
       },
       {
