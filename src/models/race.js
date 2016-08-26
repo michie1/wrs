@@ -1,6 +1,6 @@
 export class Race {
     date;
-    type = 'criterium';
+    category;
 
     slug = '';
     report = 'Verslag';
@@ -9,6 +9,7 @@ export class Race {
         this.name = data.name;
         this.date = data.date;
         this.slug = this.name.replace(/ /g, '-').toLowerCase();
+        this.category = data.category;
         //this.slug = data.slug;
     }
 
