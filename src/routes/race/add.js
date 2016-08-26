@@ -5,11 +5,11 @@ import moment from 'moment';
 
 @inject(RaceService, Router)
 export class Add {
-    name = '';
+    name = 'Tijdelijk Standaard';
     date;
 
-    category = 'Criterium';
-    categories = ['Criterium', 'Klassieker', 'Tijdrit'];
+    category = 'criterium';
+    categories = ['criterium', 'klassieker', 'tijdrit'];
 
     submitted = false;
 

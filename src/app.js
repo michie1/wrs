@@ -39,7 +39,7 @@ export class App {
             moduleId: 'routes/race-details'
         }, {
             route: 'wedstrijd/toevoegen',
-            name: 'RaceAdd',
+            name: 'raceAdd',
             moduleId: 'routes/race/add'
         }]);
 
