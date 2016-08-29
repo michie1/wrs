@@ -27,12 +27,12 @@ describe('RaceService', () => {
         let expectedRaces = [new Race({
             "name":"Gouden Pijl Emmen",
             "date":"2016-08-11",
-            "type":"criterium",
+            "category":"criterium",
             "report":"verslag"
         }), new Race({
             "name":"Ronde van de Lier",
             "date":"2016-08-11",
-            "type":"criterium",
+            "category":"criterium",
             "report":"verslag"
         })];
 
@@ -47,7 +47,7 @@ describe('RaceService', () => {
         let expectedRace = new Race({
             "name":"Ronde van de Lier",
             "date":"2016-08-11",
-            "type":"criterium",
+            "category":"criterium",
             "report":"verslag"
         });
 
