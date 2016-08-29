@@ -22,21 +22,21 @@ export class App {
             redirect: 'wedstrijden'
         }, {
             route: 'renners',
-            moduleId: 'routes/riders',
+            moduleId: 'routes/rider/riders',
             title: 'Renners',
             name: 'riders'
         }, {
             route: 'renner/:slug',
             name: 'rider',
-            moduleId: 'routes/rider-details'
+            moduleId: 'routes/rider/details'
         }, {
             route: 'wedstrijden',
             name: 'races',
-            moduleId: 'routes/races'
+            moduleId: 'routes/race/races'
         }, {
             route: 'wedstrijd/:date/:slug',
             name: 'race',
-            moduleId: 'routes/race-details'
+            moduleId: 'routes/race/details'
         }, {
             route: 'wedstrijd/toevoegen',
             name: 'raceAdd',

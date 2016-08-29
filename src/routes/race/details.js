@@ -1,7 +1,7 @@
 import {inject} from 'aurelia-framework';
 
-import {RaceService} from '../services/data/race';
-import {ResultService} from '../services/data/result';
+import {RaceService} from '../../services/data/race';
+import {ResultService} from '../../services/data/result';
 
 @inject(RaceService, ResultService)
 export class RaceDetails {

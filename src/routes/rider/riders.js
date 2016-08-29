@@ -1,7 +1,7 @@
 import {inject} from 'aurelia-framework';  
 
-import {Rider} from '../models/rider';
-import {RiderService} from '../services/data/rider';
+import {Rider} from '../../models/rider';
+import {RiderService} from '../../services/data/rider';
 
 @inject(RiderService)
 export class RidersIndex {
