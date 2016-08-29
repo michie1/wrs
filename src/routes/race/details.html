@@ -1,25 +1,37 @@
 <template>
-	<h2>${race.name}</h2>
-    <ul>
-        <li>${race.date}</li>
-        <li>${race.category}</li>
-        <li>${race.report}</li>
-    </ul>
-    <h2>Uitslagen</h2>
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Renner</th>
-                    <th>Uitslag</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr repeat.for="result of results">
-                    <td><a route-href="route: rider; params.bind: {slug:result.rider.slug}">${result.rider.name}</a></td>
-                    <td>${result.result}</td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            ${race.name}
+        </div>
+
+        <div class="panel-body">
+            <ul>
+                <li>${race.date}</li>
+                <li>${race.category}</li>
+                <li>${race.report}</li>
+            </ul>
+            <div class="btn-group" role="group" aria-label="...">
+                <a class="btn btn-primary" role="button" route-href="route: resultAdd; params.bind: {slug: race.slug, date: race.date}">Resultaat toevoegen</a>
+            </div>
+
+
+            <h2>Uitslagen</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Renner</th>
+                            <th>Uitslag</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr repeat.for="result of results">
+                            <td><a route-href="route: rider; params.bind: {slug:result.rider.slug}">${result.rider.name}</a></td>
+                            <td>${result.result}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </template>

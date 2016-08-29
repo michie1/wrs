@@ -1,0 +1,43 @@
+<template>
+    <h2>Resultaat toevoegen</h2>
+
+    <form role="form" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Wedstrijd</label>
+            <div class="col-sm-5">
+                <input type="text" value.bind="race.name" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Datum</label>
+            <div class="col-sm-5">
+                <input type="date" value.bind="race.date" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Renner</label>
+            <div class="col-sm-5">
+                <input type="text" value.bind="rider" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Uitslag</label>
+            <div class="col-sm-5">
+                <input type="text" value.bind="result" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-1 control-label">Opmerking</label>
+            <div class="col-sm-5">
+                <input type="text" value.bind="note" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-10">
+                <button type="submit" class="btn btn-default" disabled.bind="submitted" click.trigger="add()">Opslaan</button>
+            </div>
+        </div>
+    </form>
+
+</template>
+
