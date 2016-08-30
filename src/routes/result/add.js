@@ -14,6 +14,8 @@ export class Add {
 
     submitted = false;
 
+    raceComparer = (a, b) => a.slug === b.slug && a.date === b.date;
+
     constructor(raceService, riderService, router) {
         this.raceService = raceService;
         this.riderService = riderService;
@@ -21,17 +23,25 @@ export class Add {
     }
 
     activate(params) {
-        this.raceService.load(params.slug, params.date).then(race => {
-            this.race = race;
-        });
-
+       
+        this.race = {
+            slug: params.slug,
+            date: params.date
+        };
+        
         this.riderService.load().then(riders => {
             this.riders = riders;
+        });
+
+        this.raceService.load().then(races => {
+            this.races = races;
         });
     }
 
     add() {
-        this.submitted = true;
+        //this.submitted = true;
+        console.log(this.race.date, this.race.slug);
+        console.log(this.rider);
         /*
         this.raceService.create({
             name: this.name,
