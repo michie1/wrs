@@ -32,7 +32,7 @@ export class RaceService {
     create(data) {
         return this.http.fetch('race', {
             method: 'post',
-            body: json(data)
+            body: json(data) // name, date, category
         }).then((response) => {
             return response.json();
         });

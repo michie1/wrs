@@ -26,8 +26,6 @@ export class Add {
             date: this.date,
             category: this.category,
         }).then((response) => {
-            console.log(response);
-            
             this.router.navigateToRoute('race', {
                 'slug': response.slug,
                 'date': response.date

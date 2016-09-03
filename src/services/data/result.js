@@ -1,5 +1,5 @@
 import {inject, Factory} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
+import {HttpClient, json} from 'aurelia-fetch-client';
 
 import {Result} from '../../models/result';
 
@@ -29,6 +29,16 @@ export class ResultService {
             return results.map(data => {
                 return new Result(data);
             });
+        });
+    }
+   
+    create(data) {
+        return this.http.fetch('result', {
+            method: 'post',
+            // riderName, riderSlug, raceName, raceSlug, raceDate, result
+            body: json(data) 
+        }).then((response) => {
+            return response.json();
         });
     }
 }

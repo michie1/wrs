@@ -16,7 +16,7 @@
             <label class="col-sm-1 control-label">Renner</label>
             <div class="col-sm-5">
                 <select value.bind="rider">
-                    <option repeat.for="r of riders" value.bind="r.slug">
+                    <option repeat.for="r of riders" model.bind="r">
                         ${r.name}
                     </option>
                 </select>
