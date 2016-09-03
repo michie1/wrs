@@ -8,15 +8,21 @@ describe('RaceService', () => {
     let app = new App(new HttpClient());
 
     let raceService;
-
-    beforeEach(() => {
-        raceService = new RaceService(app.http);
-    });
+    raceService = new RaceService(app.http);
 
     it('should exist', () => {
         expect(raceService).toBeDefined();
         expect(app.http).toBeDefined();
         expect(raceService.http).toBeDefined();
+    });
+
+    it('should load fixture', (done) => {
+        app.http.fetch('fixture/services/data/race').then(response => {
+            return response.json()
+        }).then(response => {
+            expect(response.message).toEqual('success');
+            done();
+        });
     });
 
     it('should have a load method', () => {

@@ -19,6 +19,15 @@ describe('ResultService', () => {
         expect(resultService.http).toBeDefined();
     });
 
+    it('should load fixture', (done) => {
+        app.http.fetch('fixture/services/data/result').then(response => {
+            return response.json()
+        }).then(response => {
+            expect(response.message).toEqual('success');
+            done();
+        });
+    });
+
     it('should have a load method', () => {
         expect(resultService.load).toBeDefined();
     });
