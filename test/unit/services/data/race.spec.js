@@ -62,4 +62,16 @@ describe('RaceService', () => {
             done();
         });
     });
+
+    it('create({name: \'Standaard Tijdelijk\', date: \'2016-09-03\', category: \'criterum\'})', (done) => {
+        let expectedResponse = {
+            message: 'success',
+            slug: 'standaard-tijdelijk',
+            date: '2016-09-03'
+        }
+        raceService.create({name: 'Standaard Tijdelijk', date: '2016-09-03', category: 'criterium'}).then((response) => {
+            expect(response).toEqual(expectedResponse);
+            done();
+        });
+    });
 });
