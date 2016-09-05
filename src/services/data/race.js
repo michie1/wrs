@@ -7,9 +7,9 @@ import {Race} from '../../models/race';
 export class RaceService {
     http;
 
-    //constructor() {
-        //this.http = http;
-    //}
+    constructor() {
+        this.http = http;
+    }
 
     fetchRace(slug, date) {
         return this.http.fetch('races/' + date +  '/' + slug)
