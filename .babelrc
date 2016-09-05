@@ -4,10 +4,12 @@
   "comments": false,
   "compact": false,
   "code": true,
-  "presets": [ "es2015-loose", "stage-1"],
+  "presets": ["es2015", "es2015-node6"],
   "plugins": [
     "syntax-flow",
     "transform-decorators-legacy",
-    "transform-flow-strip-types"
+    "transform-flow-strip-types",
+    "transform-class-properties",
+    "transform-export-extensions"
   ]
 }
