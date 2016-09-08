@@ -128,6 +128,7 @@
           "aurelia-task-queue",
           "aurelia-templating",
           "aurelia-templating-binding",
+          "moment",
           {
             "name": "text",
             "path": "../scripts/text"
