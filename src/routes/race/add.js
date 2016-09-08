@@ -1,5 +1,6 @@
 import {inject} from 'aurelia-framework';
 import {RaceService} from '../../services/data/race';
+import {Race} from '../../models/race';
 import {Router, Redirect} from 'aurelia-router';
 import moment from 'moment';
 
@@ -21,14 +22,15 @@ export class Add {
 
     add() {
         this.submitted = true;
-        this.raceService.create({
+        var race = new Race({
             name: this.name,
             date: this.date,
             category: this.category,
-        }).then((response) => {
+        });
+        this.raceService.create(race).then((response) => {
             this.router.navigateToRoute('race', {
-                'slug': response.slug,
-                'date': response.date
+                slug: race.slug,
+                date: race.date
             });
         });
     }

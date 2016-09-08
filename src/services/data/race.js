@@ -7,7 +7,7 @@ import {Race} from '../../models/race';
 export class RaceService {
     http;
 
-    constructor() {
+    constructor(http) {
         this.http = http;
     }
 
@@ -34,10 +34,14 @@ export class RaceService {
         }
     }
 
-    create(data) {
+    create(race) {
         return this.http.fetch('race', {
             method: 'post',
-            body: json(data) // name, date, category
+            body: json({
+                name: race.name,
+                date: race.date,
+                category: race.category
+            })
         }).then((response) => {
             return response.json();
         });

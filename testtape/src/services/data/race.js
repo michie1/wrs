@@ -24,11 +24,11 @@ let raceObjects = [{
     "report":"verslag"
 }];
 
-let newRaceObject = {
+let newRace = new Race({
     name: 'Standaard Tijdelijk',
     date: '2016-09-03',
     category: 'criterium'
-};
+});
 
 let newRaceResponse = {
     message: 'success',
@@ -76,7 +76,7 @@ test('RaceService', function (t) {
         t.same(races.map(race => race.date + race.name).sort(), expectedRaces.map(race => race.date + race.name).sort(), 'load all');
     });
 
-    raceService.create(newRaceObject)
+    raceService.create(newRace)
         .then((response) => {
             t.same(response, newRaceResponse, 'create');
         });
