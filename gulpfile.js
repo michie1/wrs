@@ -21,14 +21,13 @@ gulp.task('testbuild', () => {
 });
 
 gulp.task('testwatch', () => {
-    return gulp.watch('testtape/build/**/*.js')
+    return gulp.watch(['testtape/build/**/*.js', 'build/**.*.js'])
                       .on('change', (file) => { 
                           gutil.log('test', file);
                           return gulp.src(file)
                               .pipe(plumber())
                               .pipe(tape({
                               reporter: faucet()
-                          
                           }));
                       });
 });
