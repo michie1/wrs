@@ -12,4 +12,3 @@ test('Race model', (t) => {
     t.equal(race.slug, 'naam-laam', 'slug');
     t.equal(race.countWTOSers(), 5, 'count wtosers');
 });
-

@@ -9,19 +9,35 @@ export class RiderService {
         this.http = http;
     }
 
+    fetchRider(slug) {
+        return this.http.fetch('riders/' + slug)
+            .then(response => response.json())
+    }
+
+    fetchRiders() {
+        return this.http.fetch('riders')
+            .then(response => response.json())
+    }
+
     load(slug) {
-        if (slug === undefined) { // load all
-            return this.http.fetch('riders')
-                .then(response => response.json())
+        if (slug === undefined) {
+            return this.fetchRiders()
                 .then(riders => {
                     return riders.map(data => {
                         return new Rider(data);
                     });
                 });
-        } else { // load specific one
-            return this.http.fetch('riders/' + slug)
-                .then(response => response.json())
-                .then(data => new Rider(data));
+        } else { 
+            return this.fetchRider(slug).then(data => new Rider(data));
         }
+    }
+
+
+    create() {
+        return new Promise(function (resolve, reject) {
+        resolve({
+            message: 'success'
+        });
+    });
     }
 }

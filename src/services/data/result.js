@@ -11,11 +11,8 @@ export class ResultService {
         this.http = http;
     }
 
-    load(model, slug, date) {
-        let url = 'results';
-        if (model === undefined) {
-            console.log('no model in load method of ResultService');
-        }
+    fetchResults(model, slug, date) {
+       let url = 'results';
 
         if (model === 'race') {
             url += '/' + date;
@@ -24,8 +21,11 @@ export class ResultService {
         url += '/' + slug;
 
         return this.http.fetch(url)
-        .then(response => response.json())
-        .then(results => {
+            .then(response => response.json())
+    }
+
+    load(model, slug, date) {
+         return this.fetchResults(model, slug, date).then(results => {
             return results.map(data => {
                 return new Result(data);
             });
